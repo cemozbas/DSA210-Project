@@ -53,7 +53,7 @@ External factors significantly influence bike rental demand, with measurable eff
 		
   •Rain and strong winds lead to a decline in rentals.
 		
-  •Holidays and major events cause noticeable fluctuations in demand.
+  •Holidays and major events cause noticeable increase in demand.
 
 # Methods
  1. Data Collection – Retrieve Citi Bike trip records and Open-Meteo weather data.
