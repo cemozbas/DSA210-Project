@@ -30,8 +30,11 @@ To analyze the impact of weather on bike rental demand, historical weather data 
 
 # Research Questions
 • How much does temperature affect bike rental demand? 
+
 • Do rainy or windy conditions significantly decrease ridership? 
+
 • Are holidays associated with increased or decreased bike rentals? 
+
 • What are the peak times and days for bike rentals?
 
 
@@ -45,9 +48,12 @@ Weather conditions, holidays, and time of day have no significant impact on bike
 Alternative Hypothesis (H₁):
 
 External factors significantly influence bike rental demand, with measurable effects:
-	•	Higher temperatures increase ridership up to an optimal range, beyond which extreme heat reduces rentals.
-	•	Rain and strong winds lead to a decline in rentals.
-	•	Holidays and major events cause noticeable fluctuations in demand.
+		
+  •Higher temperatures increase ridership up to an optimal range, beyond which extreme heat reduces rentals.
+		
+  •Rain and strong winds lead to a decline in rentals.
+		
+  •Holidays and major events cause noticeable fluctuations in demand.
 
 # Methods
  1. Data Collection – Retrieve Citi Bike trip records and Open-Meteo weather data.
@@ -58,9 +64,13 @@ External factors significantly influence bike rental demand, with measurable eff
 
 # Limitations and Future Work
 Limitations:
-	•	Data is limited to New York City, making results location-dependent.
-	•	Other external factors (e.g., traffic, bike availability) are not included.
+		
+  •Data is limited to New York City, making results location-dependent.
+		
+  •Other external factors (e.g., traffic, bike availability) are not included.
 
 Future Improvements:
-	•	Expand analysis to other cities for comparison.
-	•	Use real-time data for predictive modeling.
+		
+  •Expand analysis to other cities for comparison.
+		
+  •Use real-time data for predictive modeling.
