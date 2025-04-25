@@ -140,19 +140,6 @@ Otherwise → No significant difference detected.
 
 ---
 
-# 📂 Project Structure
-
-```
-- citibike_merged.csv          # Raw trip data (input)
-- daily_trip_counts.png        # Daily trip count plot (rainy days highlighted)
-- boxplot_rainy_vs_dry.png      # Boxplot comparing rainy vs dry days
-- boxplot_weekday_vs_weekend.png# Boxplot comparing weekdays vs weekends
-- analysis_script.py           # Full analysis script (Python)
-- README.md                     # This documentation
-```
-
----
-
 # 🚲 Special Notes
 
 - Rain was considered significant if daily precipitation > **1.0 mm**.
@@ -160,19 +147,3 @@ Otherwise → No significant difference detected.
 - Data for holidays was excluded from analysis due to insufficient sample size.
 
 ---
-
-# 🛠️ How to Run
-
-Make sure you have installed:
-
-```bash
-pip install pandas matplotlib requests scipy
-```
-
-Then run:
-
-```bash
-python analysis_script.py
-```
-
-All figures and test results will be saved in your working directory!
