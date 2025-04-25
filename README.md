@@ -1,76 +1,151 @@
 # Bike Rental Demand Analysis: Trends & Influencing Factors
 
+Project Overview
 
-# Project Overview
- Whether you’re a tourist or a local, renting bikes can be a great activity for individuals and families alike. This project examines the extent to which various factors influence bike rental demand, including weather conditions, temperature, holidays, and other external events. By analyzing these variables, the study aims to quantify their impact and identify which factors play the most significant role in shaping rental trends.
+This project investigates how weather conditions and day type (weekend vs weekday) influence the bike rental demand in New York City.By integrating trip records from Citi Bike and historical weather data from Open-Meteo, we perform an exploratory and statistical analysis to identify how external factors affect the number of daily rides.
 
-# Dataset
+This study aims to:
 
-This project uses data from two primary sources:
+Measure the impact of rainy weather on bike usage
 
-1. Citi Bike System Data 
+Analyze behavioral patterns between weekdays and weekends
 
-The main dataset comes from Citi Bike, a bike-sharing service in New York City. It includes:
-	•	Date & Time – Timestamp of each rental.
-	•	Start & End Station – Location of rental pickup and drop-off.
-	•	Trip Duration – Total ride time in minutes.
-	•	User Type – Subscriber vs. casual rider.
+Quantify statistical significance of observed trends
 
-📌 Source: [ Citi Bike System Data](https://ride.citibikenyc.com/system-data)
+Datasets
 
-2. Open-Meteo Historical Weather API 
+1. Citi Bike System Data
 
-To analyze the impact of weather on bike rental demand, historical weather data is obtained from Open-Meteo’s Historical Weather API. The dataset includes:
-	•	Temperature (°C) – Outdoor temperature at 2m height.
-	•	Precipitation (mm) – Total rainfall per hour.
-	•	Cloud Cover (%) – Low, mid, and high cloud coverage.
-	•	Wind Speed (m/s) – Wind speed at 10m height.
+The primary dataset comes from Citi Bike, New York City's bike-sharing service.It includes detailed ride-level information:
 
-📌 Source: [ Open-Meteo Historical Weather API](https://open-meteo.com/en/docs/historical-weather-api)
+Start Date & Time: When the trip began
 
-# Research Questions
-• How much does temperature affect bike rental demand? 
+End Date & Time: When the trip ended
 
-• Do rainy or windy conditions significantly decrease ridership? 
+Start & End Stations: Location IDs
 
-• Are holidays associated with increased or decreased bike rentals? 
+User Type: Subscriber vs casual user
 
-• What are the peak times and days for bike rentals?
+Trip Duration
 
+📌 Source: Citi Bike System Data
 
-# Hypothesis
+2. Open-Meteo Historical Weather API
 
+Historical weather conditions were retrieved from Open-Meteo's archive API.The daily weather information contains:
 
-Null Hypothesis (H₀):
+Date
 
-Weather conditions, holidays, and time of day have no significant impact on bike rental demand.
+Max and Min Temperatures (°C)
 
-Alternative Hypothesis (H₁):
+Precipitation Sum (mm)
 
-External factors significantly influence bike rental demand, with measurable effects:
-		
-  •Higher temperatures increase ridership up to an optimal range, beyond which extreme heat reduces rentals.
-		
-  •Rain and strong winds lead to a decline in rentals.
-		
-  •Holidays and major events cause noticeable increase in demand.
+Rainy Day Label (>1mm rainfall considered "rainy")
 
-# Methods
- 1. Data Collection – Retrieve Citi Bike trip records and Open-Meteo weather data.
- 2.  Data Cleaning – Handle missing values, format timestamps, and merge datasets.  
- 3.  Exploratory Data Analysis (EDA) – Identify trends and visualize rental patterns.  
- 4.  Statistical Analysis – Perform correlation tests and regression modeling to assess the impact of weather and holidays.
+📌 Source: Open-Meteo Historical Weather API
 
+Data Collection Period
 
-# Limitations and Future Work
+From: January 1, 2025
+
+To: February 28, 2025
+
+Duration: 60 days
+
+Location: New York City, USA
+
+Research Questions
+
+Do rainy days significantly reduce daily bike ride numbers?
+
+Is there a meaningful difference between weekday and weekend bike usage?
+
+How do daily trip counts fluctuate over time during the winter months?
+
+Hypotheses
+
+1. Rain Impact Hypothesis
+
+Null Hypothesis (H₀): Rainy days have no significant effect on bike rentals.
+
+Alternative Hypothesis (H₁): Rainy days significantly decrease bike rentals.
+
+2. Weekend Impact Hypothesis
+
+Null Hypothesis (H₀): Weekends have no significant effect on bike rental numbers.
+
+Alternative Hypothesis (H₁): Weekends significantly influence bike rental numbers compared to weekdays.
+
+Methods
+
+Data Cleaning and Preparation
+
+Parsed timestamps and extracted dates
+
+Merged bike rental data with daily weather conditions
+
+Labeled days as rainy or dry, and weekend or weekday
+
+Exploratory Data Analysis (EDA)
+
+Plotted total daily bike trips
+
+Highlighted rainy days in time series
+
+Compared trip distributions across rain and weekend categories using boxplots
+
+Statistical Hypothesis Testing
+
+Independent two-sample t-tests to compare:
+
+Rainy days vs dry days
+
+Weekends vs weekdays
+
+Calculated p-values and interpreted significance at α = 0.05
+
+📈 Visualizations
+
+Daily Trip Counts (rainy days highlighted in red)
+
+Boxplot: Dry Days vs Rainy Days
+
+Boxplot: Weekdays vs Weekends
+
+All plots are saved as .png files in the repository for easy viewing.
+
+Results Summary
+
+1. Rain Effect
+
+T-statistic: (calculated in script)
+
+P-value: (calculated in script)
+
+Interpretation:If p < 0.05 → Rainy days significantly reduce bike rentals.Otherwise → No significant difference detected.
+
+2. Weekend Effect
+
+T-statistic: (calculated in script)
+
+P-value: (calculated in script)
+
+Interpretation:If p < 0.05 → Weekend bike rental patterns are significantly different from weekdays.Otherwise → No significant difference detected.
+
+Limitations and Future Work
+
 Limitations:
-		
-  •Data is limited to New York City, making results location-dependent.
-		
-  •Other external factors (e.g., traffic, bike availability) are not included.
 
-Future Improvements:
-		
-  •Expand analysis to other cities for comparison.
-		
-  •Use real-time data for predictive modeling.
+Study only covers January and February (winter months).
+
+NYC bike behavior may vary greatly in spring/summer seasons.
+
+No breakdown by user type (e.g., subscriber vs casual).
+
+Future Work:
+
+Extend study to a full calendar year for seasonal trends.
+
+Analyze user types separately (commuters vs tourists).
+
+Predict bike rental demand using machine learning models.
