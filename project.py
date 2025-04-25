@@ -4,12 +4,12 @@ import matplotlib.pyplot as plt
 import requests
 from scipy.stats import ttest_ind
 
-# --- STEP 1: READ CITIBIKE TRIP DATA ---
+# READ CITIBIKE TRIP DATA 
 bike_df = pd.read_csv("citibike_merged.csv")
 bike_df["started_at"] = pd.to_datetime(bike_df["started_at"])
 bike_df["date"] = bike_df["started_at"].dt.date
 
-# --- STEP 2: FETCH WEATHER DATA (Jan+Feb 2025) ---
+# FETCH WEATHER DATA (Jan+Feb 2025) 
 url = "https://archive-api.open-meteo.com/v1/archive"
 params = {
     "latitude": 40.71,
@@ -33,7 +33,7 @@ else:
     print("❌ Failed to retrieve daily weather data.")
     weather_df = None
 
-# --- STEP 3: ANALYSIS ---
+#ANALYSIS 
 if weather_df is not None:
     # Count rides per day
     daily_trips = bike_df.groupby("date").size().reset_index(name="trip_count")
@@ -45,7 +45,7 @@ if weather_df is not None:
     # Add weekend info
     merged["weekend"] = pd.to_datetime(merged["date"]).dt.weekday >= 5  # Saturday=5, Sunday=6
 
-    # --- STEP 4: PLOTTING ---
+    #PLOTTING 
 
     ## (1) Daily Total Trips (Rainy Days Highlighted)
     plt.figure(figsize=(14,6))
@@ -82,7 +82,7 @@ if weather_df is not None:
     plt.savefig("boxplot_weekday_vs_weekend.png")
     plt.show()
 
-    # --- STEP 5: HYPOTHESIS TESTING ---
+    #HYPOTHESIS TESTING 
 
     ## (a) Rainy Days vs Dry Days
     rainy = merged[merged["rainy"]]["trip_count"]
@@ -93,9 +93,9 @@ if weather_df is not None:
     print(f"\nT-Statistic (Rain Effect): {t_stat_rain:.2f}")
     print(f"P-Value (Rain Effect): {p_val_rain:.4f}")
     if p_val_rain < 0.05:
-        print("✅ Statistically significant difference: Rain impacts bike rentals.")
+        print(" Statistically significant difference: Rain impacts bike rentals.")
     else:
-        print("❌ No significant difference: Rain does not significantly affect rentals.")
+        print(" No significant difference: Rain does not significantly affect rentals.")
 
     ## (b) Weekend vs Weekday
     weekend_days = merged[merged["weekend"]]["trip_count"]
@@ -106,9 +106,9 @@ if weather_df is not None:
     print(f"\nT-Statistic (Weekend Effect): {t_stat_weekend:.2f}")
     print(f"P-Value (Weekend Effect): {p_val_weekend:.4f}")
     if p_val_weekend < 0.05:
-        print("✅ Statistically significant difference: Weekends impact bike rentals.")
+        print(" Statistically significant difference: Weekends impact bike rentals.")
     else:
-        print("❌ No significant difference: Weekends do not significantly affect rentals.")
+        print(" No significant difference: Weekends do not significantly affect rentals.")
 
 else:
-    print("🚫 Skipping analysis because weather data could not be retrieved.")
+    print(" Skipping analysis because weather data could not be retrieved.")
