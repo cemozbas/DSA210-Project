@@ -1,6 +1,6 @@
 # Bike Rental Demand Analysis: Trends & Influencing Factors
 
-Project Overview
+# Project Overview
 
 This project investigates how weather conditions and day type (weekend vs weekday) influence the bike rental demand in New York City.By integrating trip records from Citi Bike and historical weather data from Open-Meteo, we perform an exploratory and statistical analysis to identify how external factors affect the number of daily rides.
 
@@ -12,7 +12,7 @@ Analyze behavioral patterns between weekdays and weekends
 
 Quantify statistical significance of observed trends
 
-Datasets
+# Datasets
 
 1. Citi Bike System Data
 
@@ -54,7 +54,7 @@ Duration: 60 days
 
 Location: New York City, USA
 
-Research Questions
+# Research Questions
 
 Do rainy days significantly reduce daily bike ride numbers?
 
@@ -62,7 +62,7 @@ Is there a meaningful difference between weekday and weekend bike usage?
 
 How do daily trip counts fluctuate over time during the winter months?
 
-Hypotheses
+# Hypotheses
 
 1. Rain Impact Hypothesis
 
@@ -76,7 +76,7 @@ Null Hypothesis (H₀): Weekends have no significant effect on bike rental numbe
 
 Alternative Hypothesis (H₁): Weekends significantly influence bike rental numbers compared to weekdays.
 
-Methods
+# Methods
 
 Data Cleaning and Preparation
 
@@ -104,7 +104,7 @@ Weekends vs weekdays
 
 Calculated p-values and interpreted significance at α = 0.05
 
-📈 Visualizations
+# Visualizations
 
 Daily Trip Counts (rainy days highlighted in red)
 
@@ -114,7 +114,7 @@ Boxplot: Weekdays vs Weekends
 
 All plots are saved as .png files in the repository for easy viewing.
 
-Results Summary
+# Results Summary
 
 1. Rain Effect
 
@@ -134,7 +134,7 @@ Interpretation:If p < 0.05 → Weekend bike rental patterns are significantly di
 
 Limitations and Future Work
 
-Limitations:
+# Limitations
 
 Study only covers January and February (winter months).
 
@@ -142,7 +142,7 @@ NYC bike behavior may vary greatly in spring/summer seasons.
 
 No breakdown by user type (e.g., subscriber vs casual).
 
-Future Work:
+# Future Work
 
 Extend study to a full calendar year for seasonal trends.
 
