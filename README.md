@@ -3,12 +3,13 @@
 ## Project Overview
 
 This project investigates how **weather conditions** and **day type** (weekend vs weekday) influence the **bike rental demand** in New York City.  
-By integrating trip records from Citi Bike and historical weather data from Open-Meteo, we perform an exploratory and statistical analysis to identify how external factors affect the number of daily rides.
+By integrating trip records from Citi Bike and historical weather data from Open-Meteo, we perform an exploratory and statistical analysis to identify how external factors affect the number of daily rides and train predictive models to forecast ride volume trends.
 
 This study aims to:
 - Measure the impact of rainy weather on bike usage
 - Analyze behavioral patterns between weekdays and weekends
 - Quantify statistical significance of observed trends
+- Predict March 2025 trip demand using ML models trained on January–February data and make comparison with real world Match 2025 data
 
 ## Datasets
 
@@ -43,9 +44,8 @@ The daily weather information contains:
 
 ## Data Collection Period
 
-- **From:** January 1, 2025
-- **To:** February 28, 2025
-- **Duration:** 60 days
+- **Training Period:** January 1 – February 28, 2025 (60 days)
+- **Test Period:** March 1 – 31, 2025 (31 days)
 - **Location:** New York City, USA
 
 ---
@@ -55,6 +55,7 @@ The daily weather information contains:
 - Do rainy days significantly reduce daily bike ride numbers?
 - Is there a meaningful difference between weekday and weekend bike usage?
 - How do daily trip counts fluctuate over time during the winter months?
+- Can we predict trip volume using weather and calender features?
 
 ---
 
@@ -74,10 +75,11 @@ The daily weather information contains:
 
 ## Methods
 
-1. **Data Cleaning and Preparation**
+1. **Data Cleaning and Merging**
    - Parsed timestamps and extracted dates
    - Merged bike rental data with daily weather conditions
    - Labeled days as rainy or dry, and weekend or weekday
+     
 
 2. **Exploratory Data Analysis (EDA)**
    - Plotted total daily bike trips
@@ -89,14 +91,22 @@ The daily weather information contains:
      - Rainy days vs dry days
      - Weekends vs weekdays
    - Calculated p-values and interpreted significance at α = 0.05
+  
+4. **Machine Learning Prediction**
+   - Trained two models using Jan-Feb data:
+     - **Random Forest Regressor**
+     - **Linear Regressionr**
+   - Input features: precipitation, temperature, weekday, weekend flag, temperature range
+   - Target: daily trip count  
 
 ---
 
 ## 📈 Visualizations
 
-- **Daily Trip Counts** (rainy days highlighted in red)
-- **Boxplot: Dry Days vs Rainy Days**
-- **Boxplot: Weekdays vs Weekends**
+- **Daily Trip Counts (Jan-Feb)** (rainy days highlighted in red)
+- **Boxplot:** Dry Days vs Rainy Days
+- **Boxplot:** Weekdays vs Weekends
+- **ML Prediction Chart:** Actual vs predicted for March
 
 > All plots are saved as `.png` files in the repository for easy viewing.
 
@@ -106,44 +116,40 @@ The daily weather information contains:
 
 ### 1. Rain Effect
 
-- **T-statistic**: (calculated in script)
-- **P-value**: (calculated in script)
+- **T-statistic**: -2.95
+- **P-value**: 0.0062
+- **Avg rider on dry days:** ~74,634
+- **Avg rider on rainy days:** ~60,052
+- **Estimated drop due to rain:** ~19.5%
+
 
 **Interpretation:**  
-If p < 0.05 → Rainy days significantly reduce bike rentals.  
-Otherwise → No significant difference detected.
+Since p < 0.05, the difference is **statistically significant** 
+Rainy days **reduce bike rentals by approximately 19.5%**
 
 ---
 
 ### 2. Weekend Effect
 
-- **T-statistic**: (calculated in script)
-- **P-value**: (calculated in script)
+- **T-statistic**: -4.57
+- **P-value**: 0.0001
 
 **Interpretation:**  
-If p < 0.05 → Weekend bike rental patterns are significantly different from weekdays.  
-Otherwise → No significant difference detected.
+Since p < 0.05, the difference is **statistically significant** 
+Bike rental patterns differ between weekdays and weekends — with **weekdays showing higher usage**, which is likely related that in winter months there are less leisure rides on weekends compared to the amount of commuters in weekdays.
 
 ---
 
 ## Limitations and Future Work
 
 **Limitations:**
-- Study only covers January and February (winter months).
-- NYC bike behavior may vary greatly in spring/summer seasons.
-- No breakdown by user type (e.g., subscriber vs casual).
+- Only 3 winter months analyzed (not generalizable to warmer seasons)
+- No distinction between user types (commuters vs tourists)
+- ML models trained on small dataset, prone to overfitting
 
 **Future Work:**
 - Extend study to a full calendar year for seasonal trends.
 - Analyze user types separately (commuters vs tourists).
-- Predict bike rental demand using machine learning models.
+- Explore additional ML models
 
----
 
-# 🚲 Special Notes
-
-- Rain was considered significant if daily precipitation > **1.0 mm**.
-- A **weekend** was defined as Saturday or Sunday.
-- Data for holidays was excluded from analysis due to insufficient sample size.
-
----
