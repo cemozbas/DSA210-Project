@@ -95,7 +95,7 @@ The daily weather information contains:
 4. **Machine Learning Prediction**
    - Trained two models using Jan-Feb data:
      - **Random Forest Regressor**
-     - **Linear Regressionr**
+     - **Linear Regression**
    - Input features: precipitation, temperature, weekday, weekend flag, temperature range
    - Target: daily trip count  
 
@@ -139,6 +139,36 @@ Since p < 0.05, the difference is **statistically significant**
 Bike rental patterns differ between weekdays and weekends — with **weekdays showing higher usage**, which is likely related that in winter months there are less leisure rides on weekends compared to the amount of commuters in weekdays.
 
 ---
+
+## Limitations and Future Work
+
+To test the predictive power of machine learning, models were trained using **January + February 2025** data and then tested on **March 2025** data.
+
+Two models were applied:
+   - **Random Forest Regressor**
+   - **Linear Regression**
+
+**Model Edvaluation Metrics**
+
+- **Random Forect Regression**
+   - R² Score: 0.3243
+   - MAE (Mean Absolute Error): 13,820.8 trips
+
+- **Linear Regression**
+   - R² Score: 0.1133
+   - MAE (Mean Absolute Error): 15,368.8 trips
+   
+**Interpretation**
+- While the **R² values** may appear low, the models — especially **Random Forest** — still produced **reasonably accurate** predictions in absolute terms.
+- An average daily prediction error of **~13,800** trips suggests that the model captured meaningful patterns in the data, particularly on **non-extreme weather days**.
+- The **visual alignment** of predicted vs actual values indicates **trend-following behavior**, even if the models could not explain all the variance.
+
+**Visualization**
+-A comparison chart of actual vs predicted trips for March is provided below:
+
+march_prediction_vs_actual_rf_lr.png
+
+--
 
 ## Limitations and Future Work
 
