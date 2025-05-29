@@ -164,11 +164,11 @@ Two models were applied:
 - The **visual alignment** of predicted vs actual values indicates **trend-following behavior**, even if the models could not explain all the variance.
 
 **Visualization**
--A comparison chart of actual vs predicted trips for March is provided below:
+- A comparison chart of actual vs predicted trips for March is provided below:
 
-march_prediction_vs_actual_rf_lr.png
+   - march_prediction_vs_actual_rf_lr.png
 
---
+
 
 ## Limitations and Future Work
 
